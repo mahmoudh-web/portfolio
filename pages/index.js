@@ -1,29 +1,27 @@
 import { useAppContext } from "../AppContext"
+import Header from "../components/Header"
 
 export default function Home() {
     const {darkMode, setDarkMode, theme} = useAppContext()
 
     return (
-        <div className="flex flex-col h-screen w-screen justify-center items-center">
-            <h1 className='
-                text-6xl md:text-8xl
-                text-orange-600
-                font-bold
-            '>
-                {`{mahmoud.h}`}
-            </h1>
-            <h3 className="
-                text-4xl md:text-6xl
-                mt-6
-            ">
-                Frontend Developer
-            </h3>
-            <h3 className="
-                text-2xl md:text-4xl
-                mt-4
-            ">
-                Website coming soon....
-            </h3>
+        <div className="flex flex-col h-screen w-screen">
+            <Header />
+            <div className="px-4 pb-4 flex flex-col justify-between h-full">
+                <h3 className="
+                    text-4xl md:text-6xl font-bold
+                    mt-6
+                ">
+                    Full Stack Developer
+                </h3>
+                <h3 className="
+                    text-2xl md:text-4xl
+                    mt-4
+                    self-end
+                ">
+                    Website coming soon....
+                </h3>
+            </div>
         </div>
     )
 }
