@@ -10,8 +10,8 @@ export default function Document() {
             <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet" />
         </ Head>
         <body className='
-            bg-gradient-to-tr from-rose-700 to-pink-600
-            text-slate-200      
+            bg-neutral-300
+            text-zinc-800      
         '>
             <Main />
             <NextScript />
