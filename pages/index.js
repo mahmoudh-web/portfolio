@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div className="flex flex-col h-screen w-screen">
             <Header />
-            <div className="px-4 pb-4 flex flex-col justify-between h-full">
+            <div className="px-4 pb-4 flex flex-col justify-between h-5/6">
                 <h3 className="
                     text-4xl md:text-6xl font-bold
                     mt-6
