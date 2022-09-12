@@ -7,20 +7,22 @@ export default function Home() {
     return (
         <div className="flex flex-col h-screen w-screen">
             <Header />
-            <div className="px-4 pb-4 flex flex-col justify-between h-5/6">
+            <div className="px-4 pb-4 flex flex-col justify-start items-baseline w-3/4">
                 <h3 className="
-                    text-4xl md:text-6xl font-bold
-                    mt-6
-                ">
-                    Full Stack Developer
+                    text-3xl md:text-5xl
+                    leading-snug md:leading-snug
+                    ">
+                    Hi, I'm <span className="font-bold text-orange-600">Mahmoud</span>,
                 </h3>
                 <h3 className="
-                    text-2xl md:text-4xl
-                    mt-4
-                    self-end
+                    text-3xl md:text-5xl
+                    leading-snug md:leading-snug
                 ">
-                    Website coming soon....
+                    a Full Stack Developer
                 </h3>
+                <p className="leading-loose">I have a keen eye for great user experiences.</p>
+                <p className="leading-loose">Have a project in mind? <span className="font-bold cursor-pointer hover:text-orange-600">Let's Discuss it.</span></p>
+
             </div>
         </div>
     )
