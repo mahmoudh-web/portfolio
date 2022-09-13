@@ -7,17 +7,16 @@ const AppContextProvider = ({children}) => {
     const {theme, setTheme} = useTheme()
     const [darkMode, setDarkMode] = useState(false)
     
-    setTheme('light')
-    
-    useEffect(() => {
-        setTheme(darkMode ? "dark" : "light")
-    }, [darkMode])
+    const changeTheme = () => {
+        setTheme(theme === 'light' ? 'dark': 'light')
+    }
 
     return (
         <AppContext.Provider value={{
             theme,
             darkMode,
             setDarkMode,
+            changeTheme
         }}>
             {children}
         </AppContext.Provider>
