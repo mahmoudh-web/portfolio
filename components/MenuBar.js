@@ -15,7 +15,7 @@ const MenuBar = () => {
             className={`
                 absolute 
                 flex 
-                top-0 bottom-0 
+                h-[${height}]
                 ${menuOpen ? '-left-4' : '-left-60'} 
                 w-72`}
             layout
