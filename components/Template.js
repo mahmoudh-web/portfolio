@@ -16,11 +16,11 @@ const Template = ({children}) => {
     return (
         <div className={`
             relative flex
-            h-screen w-screen
+            h-[${vh * 100}px] w-screen
             overflow-hidden
             `}
         >
-            <MenuBar />
+            <MenuBar vw={vw} vh={vh}/>
 
             <div className='grow flex flex-col'>
                 <div className='bg-blue-200 h-12 pl-16'>Header Bar</div>
