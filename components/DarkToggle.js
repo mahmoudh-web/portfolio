@@ -2,7 +2,11 @@ import { motion } from "framer-motion"
 import { useAppContext } from "../AppContext"
 
 const DarkToggle = () => {
-    const { theme, changeTheme } = useAppContext()
+    const { theme, changeTheme, mounted } = useAppContext()
+
+    if (!mounted) {
+        return null
+    }
 
     return (
         <div className="flex flex-col items-center gap-2">

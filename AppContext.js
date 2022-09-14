@@ -5,8 +5,12 @@ const AppContext = createContext()
 
 const AppContextProvider = ({children}) => {
     const {theme, setTheme} = useTheme()
-    const [darkMode, setDarkMode] = useState(false)
+    const [mounted, setMounted] = useState(false) // used to delay the loading of the dark mode toggler until the app is fully mounted
     
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
     const changeTheme = () => {
         setTheme(theme === 'light' ? 'dark': 'light')
     }
@@ -14,9 +18,8 @@ const AppContextProvider = ({children}) => {
     return (
         <AppContext.Provider value={{
             theme,
-            darkMode,
-            setDarkMode,
-            changeTheme
+            changeTheme,
+            mounted
         }}>
             {children}
         </AppContext.Provider>
