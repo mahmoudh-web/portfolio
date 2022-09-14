@@ -1,9 +1,10 @@
 import { useAppContext } from '../AppContext'
 import Menu from '../components/Menu'
+import MenuBar from './MenuBar'
 
 const Template = ({children}) => {
 
-    const {width, height, open, handleCloseMenu} = useAppContext()
+    const {width, height, open, handleCloseMenu, mounted} = useAppContext()
 
     return (
         <div className={`
@@ -12,14 +13,11 @@ const Template = ({children}) => {
             overflow-hidden
             `}
         >
-            <div className={`h-[${height}] bg-neutral-300 dark:bg-zinc-800`}>
-                <Menu />
-            </div>
-            {open && (
-                <div className="w-full h-full bg-zinc-800 opacity-50 absolute" onClick={handleCloseMenu}></div>
-            )}
-            <div className="pl-16 overflow-y-auto" onClick={handleCloseMenu}>
-                {children}
+            <MenuBar />
+
+            <div className='grow flex flex-col'>
+                <div className='bg-blue-200 h-12 pl-16'>Header Bar</div>
+                <div className='bg-blue-400 grow'>Main Section</div>
             </div>
         </div>
     )

@@ -20,24 +20,27 @@ const Menu = () => {
     const {height, open, setOpen} = useAppContext()
 
     return (
-        <motion.div 
-            variants={mainVariants}
-            initial = "initial"
-            animate="animate"
-            className={`
-                absolute top-0 bottom-0 
-                z-50
-                `}
-                >
+        // <motion.div 
+        //     layout
+        //     variants={mainVariants}
+        //     initial = "initial"
+        //     animate="animate"
+        //     transition={{type: 'linear', originX: 0}}
+        //     className={`
+        //         flex h-full 
+        //         `}
+        // >
             <motion.div 
-                layout
+                variants={mainVariants}
+                initial = "initial"
+                animate="animate"
                 transition={{type: 'linear', originX: 0}}
                 className={`
                     ${open ? 'w-96 border-r-2': 'w-12'}
                     border-r border-r-zinc-800 dark:border-r-neutral-300
                     bg-neutral-300 dark:bg-zinc-800
                     flex flex-col justify-between items-start gap-8
-                    absolute top-0 bottom-0
+                    h-full
                     px-2 py-4
                 `}
                 >
@@ -76,7 +79,7 @@ const Menu = () => {
                 </motion.div>
 
             </motion.div>
-        </motion.div>
+        // </motion.div>
     )
 }
 
