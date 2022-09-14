@@ -37,7 +37,8 @@ const Menu = () => {
                     border-r border-r-zinc-800 dark:border-r-neutral-300
                     bg-neutral-300 dark:bg-zinc-800
                     flex flex-col justify-between items-start gap-8
-                    absolute top-2 bottom-2
+                    absolute top-0 bottom-0
+                    px-2 py-4
                 `}
                 >
                 <motion.div 

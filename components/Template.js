@@ -10,9 +10,11 @@ const Template = ({children}) => {
             relative flex
             h-screen w-screen
             overflow-hidden
-            p-2`}
+            `}
         >
-            <Menu />
+            <div className={`h-[${height}] bg-neutral-300 dark:bg-zinc-800`}>
+                <Menu />
+            </div>
             {open && (
                 <div className="w-full h-full bg-zinc-800 opacity-50 absolute" onClick={handleCloseMenu}></div>
             )}
