@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useAppContext } from "../AppContext";
 import Hamburger from '../icons/Hamburger'
 import CloseMenu from '../icons/CloseMenu'
 import DarkToggle from "./DarkToggle";
 import MenuItems from "./MenuItems";
+import Link from "next/link";
 
 const mainVariants = {
     initial: {
@@ -16,10 +17,7 @@ const mainVariants = {
 }
 
 const Menu = () => {
-    const {theme, setDarkMode} = useAppContext()
-
-    const [open, setOpen] = useState(false)
-
+    const {theme, setDarkMode, width, height, open, setOpen} = useAppContext()
 
     return (
         <motion.div 
@@ -28,7 +26,7 @@ const Menu = () => {
             animate="animate"
             className={`
                 absolute top-0 bottom-0 
-                h-full
+                h-[${height}]
                 z-50
                 `}
                 >
@@ -42,7 +40,7 @@ const Menu = () => {
                     flex flex-col justify-between items-start gap-8
                     absolute top-2 bottom-2
                 `}
-            >
+                >
                 <motion.div 
                     layout
                     className="cursor-pointer"
@@ -57,7 +55,22 @@ const Menu = () => {
                         <MenuItems />
                     </div>
                 )}
-                
+                {!open && (
+                    <motion.div 
+                            layout
+                            className="grow h-full w-10 flex justify-center items-center"
+                        >
+                            <Link href="/">
+                                <motion.p 
+                                    initial={{opacity: 0}}
+                                    animate={{opacity:1}}
+                                    className="text-orange-600 font-bold -rotate-90 cursor-pointer"
+                                >
+                                    mahmoudh.com
+                                </motion.p>
+                            </Link>
+                    </motion.div>
+                )}
                 <motion.div layout>
                     <DarkToggle/>
                 </motion.div>

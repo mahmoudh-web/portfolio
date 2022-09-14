@@ -3,17 +3,20 @@ import Menu from '../components/Menu'
 
 const Template = ({children}) => {
 
-    const {width, height} = useAppContext()
+    const {width, height, open, handleCloseMenu} = useAppContext()
 
     return (
         <div className={`
-            absolute inset-0
-            h-[${height}] w-[${width}]
+            relative flex
+            h-screen w-screen
+            overflow-hidden
             p-2`}
         >
             <Menu />
-            <div className="pl-14">
-                <p>{`${width}`}x{`${height}`}</p>
+            {open && (
+                <div className="w-full h-full bg-zinc-800 opacity-50 absolute" onClick={handleCloseMenu}></div>
+            )}
+            <div className="pl-16 overflow-y-auto" onClick={handleCloseMenu}>
                 {children}
             </div>
         </div>
@@ -21,5 +24,3 @@ const Template = ({children}) => {
 }
 
 export default Template
-
-// relative flex

@@ -8,6 +8,7 @@ const AppContextProvider = ({children}) => {
     const [mounted, setMounted] = useState(false) // used to delay the loading of the dark mode toggler until the app is fully mounted
     const [width, setWidth]   = useState(0);
     const [height, setHeight] = useState(0);
+    const [open, setOpen] = useState(false)
     
     const updateDimensions = () => {
         setWidth(window.innerWidth);
@@ -25,13 +26,22 @@ const AppContextProvider = ({children}) => {
         setTheme(theme === 'light' ? 'dark': 'light')
     }
 
+    const handleCloseMenu = () => {
+        if (open) {
+            setOpen(prev => !prev)
+        }
+    }
+
     return (
         <AppContext.Provider value={{
             theme,
             changeTheme,
             mounted,
             width,
-            height
+            height,
+            open,
+            setOpen,
+            handleCloseMenu
         }}>
             {children}
         </AppContext.Provider>
