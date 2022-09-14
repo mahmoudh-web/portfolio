@@ -25,7 +25,7 @@ const Template = ({children}) => {
             <div className='grow flex flex-col'>
                 <div className='bg-blue-200 h-12 pl-16'>Header Bar</div>
                 <div className='bg-blue-400 grow'>
-                    <p>Main Section</p>
+                    <p>Main Section 2</p>
                     <p>{`${vh * 100} x ${width}`}</p>
                     
                 </div>
