@@ -1,9 +1,7 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { useAppContext } from "../AppContext"
 
 const MenuBar = ({vw, vh}) => {
-    const { height } = useAppContext()
     const [menuOpen, setMenuOpen] = useState(false)
 
     const toggleMenu = () => {

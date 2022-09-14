@@ -1,5 +1,4 @@
 import { useAppContext } from '../AppContext'
-import { useRealViewport } from "next-real-viewport"
 
 import Menu from '../components/Menu'
 import MenuBar from './MenuBar'
@@ -7,7 +6,6 @@ import MenuBar from './MenuBar'
 const Template = ({children}) => {
 
     const {width, height, open, handleCloseMenu, mounted} = useAppContext()
-    const { vw, vh } = useRealViewport()
 
     if (!mounted) {
         return null
