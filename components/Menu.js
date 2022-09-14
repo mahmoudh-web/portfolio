@@ -17,7 +17,7 @@ const mainVariants = {
 }
 
 const Menu = () => {
-    const {theme, setDarkMode, width, height, open, setOpen} = useAppContext()
+    const {height, open, setOpen} = useAppContext()
 
     return (
         <motion.div 
@@ -26,7 +26,6 @@ const Menu = () => {
             animate="animate"
             className={`
                 absolute top-0 bottom-0 
-                h-[${height}]
                 z-50
                 `}
                 >
