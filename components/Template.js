@@ -9,7 +9,7 @@ const Template = ({children}) => {
     return (
         <div className={`
             relative flex
-            h-screen w-screen
+            h-[${height}] w-screen
             overflow-hidden
             `}
         >
