@@ -16,8 +16,8 @@ const AppContextProvider = ({children}) => {
     }
 
     useEffect(() => {
-        setMounted(true)
         updateDimensions()
+        setMounted(true)
         window.addEventListener("resize", updateDimensions);
         return () => window.removeEventListener("resize", updateDimensions);
     }, [])

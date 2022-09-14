@@ -1,15 +1,22 @@
 import { useAppContext } from '../AppContext'
+import { useRealViewport } from "next-real-viewport"
+
 import Menu from '../components/Menu'
 import MenuBar from './MenuBar'
 
 const Template = ({children}) => {
 
     const {width, height, open, handleCloseMenu, mounted} = useAppContext()
+    const { vw, vh } = useRealViewport()
+
+    if (!mounted) {
+        return null
+    }
 
     return (
         <div className={`
             relative flex
-            h-[${height}] w-screen
+            h-screen w-screen
             overflow-hidden
             `}
         >
@@ -17,7 +24,11 @@ const Template = ({children}) => {
 
             <div className='grow flex flex-col'>
                 <div className='bg-blue-200 h-12 pl-16'>Header Bar</div>
-                <div className='bg-blue-400 grow'>Main Section</div>
+                <div className='bg-blue-400 grow'>
+                    <p>Main Section</p>
+                    <p>{`${vh * 100} x ${width}`}</p>
+                    
+                </div>
             </div>
         </div>
     )

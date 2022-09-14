@@ -21,7 +21,7 @@ const MenuBar = () => {
             layout
             transition={{type:'spring', stiffness: 1000, damping: 40 }}
         >
-            <div className={`flex h-[${height}] grow bg-blue-900 px-8 py-4 items-end justify-end text-white`}>
+            <div className={`flex h-full grow bg-blue-900 px-8 py-4 items-end justify-end text-white`}>
                 <p>Menu Bar</p>
             </div>
             <div 
