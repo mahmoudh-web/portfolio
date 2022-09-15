@@ -58,7 +58,7 @@ const MenuItems = () => {
                 whileHover="whileHover"
             >
                 <motion.a 
-                    href='https://github.com' target='_blank' rel="noreferrer"
+                    href='https://github.com/mahmoudh-web' target='_blank' rel="noreferrer"
                     variants={hoverVariants}
                     whileHover="whileHover"
                     onClick={toggleMenu}
