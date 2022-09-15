@@ -1,14 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { useState } from "react"
 import SideHeader from "./SideHeader"
 import MenuItems from './MenuItems'
+import { useAppContext } from "../AppContext"
 
 const MenuBar = ({vw, vh}) => {
-    const [menuOpen, setMenuOpen] = useState(false)
-
-    const toggleMenu = () => {
-        setMenuOpen(prev => !prev)
-    }
+    const {menuOpen, toggleMenu} = useAppContext()
 
     return (
         <>

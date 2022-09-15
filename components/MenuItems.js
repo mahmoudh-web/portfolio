@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useAppContext } from "../AppContext";
 
 import GitHub from '../icons/GitHub'
 
 const MenuItems = () => {
     const pages = ['Lab', 'Projects', 'About', 'Contact']
+    const {toggleMenu} = useAppContext()
 
     const { pathname } = useRouter()
     
@@ -26,6 +28,7 @@ const MenuItems = () => {
                 `}                
                 variants={hoverVariants}
                 whileHover="whileHover"
+                onClick={toggleMenu}
             >
                 {pathname.startsWith(`/${page.toLowerCase()}`) ? `{${page}}` : page}
             </motion.p>
@@ -42,6 +45,7 @@ const MenuItems = () => {
                     `}
                     variants={hoverVariants}
                     whileHover="whileHover"
+                    onClick={toggleMenu}
                     >
                     {pathname === '/' ? '{Home}' : 'Home'}
                 </motion.p>
@@ -57,11 +61,11 @@ const MenuItems = () => {
                     href='https://github.com' target='_blank' rel="noreferrer"
                     variants={hoverVariants}
                     whileHover="whileHover"
+                    onClick={toggleMenu}
                     >
                     <GitHub iconsize={24}/>
                 </motion.a>
             </div>
-            {pathname}
         </div>
     )
 }

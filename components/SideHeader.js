@@ -1,7 +1,10 @@
+import { useAppContext } from "../AppContext"
 import DarkToggle from "./DarkToggle"
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const SideHeader = ({onclick, menustate}) => {
+    const {menuOpen, toggleMenu} = useAppContext()
+
     return (
         <div 
             className="
