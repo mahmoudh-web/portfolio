@@ -1,5 +1,6 @@
 import { useAppContext } from '../AppContext'
 import MenuBar from './MenuBar'
+import DarkToggle from './DarkToggle'
 
 const Template = ({children}) => {
 
@@ -13,10 +14,12 @@ const Template = ({children}) => {
     
     return (
         <div 
-            className="flex items-end w-full bg-red-200 p-8"
+            className="flex w-full overflow-hidden"
             style={{height: heightString}}
+        
         >
             <MenuBar />
+            
         </div>
     )
 }

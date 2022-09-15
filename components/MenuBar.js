@@ -1,38 +1,57 @@
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
-import { useAppContext } from "../AppContext"
+import SideHeader from "./SideHeader"
+import MenuItems from './MenuItems'
 
 const MenuBar = ({vw, vh}) => {
     const [menuOpen, setMenuOpen] = useState(false)
-    const { height } = useAppContext()
-
 
     const toggleMenu = () => {
         setMenuOpen(prev => !prev)
     }
-    return (
 
+    return (
+        <>
         <motion.div 
             className={`
                 absolute
                 flex 
                 top-0 bottom-0
                 ${menuOpen ? '-left-4' : '-left-60'} 
-                w-72`}
+                w-72
+                z-50
+                bg-neutral-300 dark:bg-zinc-800
+                `}
             layout
             transition={{type:'spring', stiffness: 1000, damping: 40 }}
         >
-            <div className={`flex h-full grow bg-blue-900 px-8 py-4 items-end justify-end text-white`}>
-                <p>Menu Bar</p>
+            <div className={`flex h-full grow px-8 py-12`}>
+                <MenuItems />
             </div>
             <div 
-                className="w-12 h-12 bg-red-900 cursor-pointer"
-                onClick={toggleMenu}
+                className="w-12 h-full flex flex-col justify-between overflow-clip"
             >
-
+                <SideHeader onclick={toggleMenu}/>
             </div>
 
         </motion.div>
+            <AnimatePresence>
+                
+            {menuOpen && (
+                <motion.div
+                    layout
+                    initial={{opacity: 0}}
+                    animate={{opacity: 0.3}}
+                    exit={{opacity: 0}}
+                    transition={{type: 'linear'}}
+                    onClick={toggleMenu}
+                    className="absolute top-0 bottom-0 left-0 right-0 h-full w-full bg-black opacity-30 z-40"
+                >
+
+                </motion.div>
+            )}
+            </AnimatePresence>
+            </>
     )
 }
 
