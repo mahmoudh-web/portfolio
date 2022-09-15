@@ -8,7 +8,7 @@ const SideHeader = ({onclick, menustate}) => {
                 flex flex-col justify-between items-center
                 h-full
                 border-r border-r-zinc-500
-                p-2
+                p-4
             "
         >
             <div className="cursor-pointer" onClick={onclick}>
