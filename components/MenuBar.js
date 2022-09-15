@@ -31,7 +31,7 @@ const MenuBar = ({vw, vh}) => {
             <div 
                 className="w-12 h-full flex flex-col justify-between overflow-clip"
             >
-                <SideHeader onclick={toggleMenu}/>
+                <SideHeader onclick={toggleMenu} menustate={menuOpen}/>
             </div>
 
         </motion.div>

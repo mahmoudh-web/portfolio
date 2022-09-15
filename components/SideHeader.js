@@ -1,7 +1,7 @@
 import DarkToggle from "./DarkToggle"
-import Hamburger from '../icons/Hamburger'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const SideHeader = ({onclick}) => {
+const SideHeader = ({onclick, menustate}) => {
     return (
         <div 
             className="
@@ -12,17 +12,11 @@ const SideHeader = ({onclick}) => {
             "
         >
             <div className="cursor-pointer" onClick={onclick}>
-                <Hamburger iconsize={24}/>
+                {!menustate && <Bars3Icon className="w-6 h-6"/>}
+                {menustate && <XMarkIcon className="w-6 h-6"/>}
             </div>
-            <div className="flex flex-col h-full justify-between">
-                <div className='flex gap-[2px] -rotate-90 translate-y-72 font-bold text-orange-600'>
-                    <p>mahmoudh.com:</p>
-                    <p>Full</p>
-                    <p>Stack</p>
-                    <p>Developer</p>
-                </div>
-                <DarkToggle />
-            </div>
+
+            <DarkToggle />
         </div>
     )
 }
