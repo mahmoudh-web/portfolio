@@ -5,7 +5,7 @@ import MenuBar from './MenuBar'
 
 const Template = ({children}) => {
 
-    const {width, height, open, handleCloseMenu, mounted} = useAppContext()
+    const {width, height, mounted} = useAppContext()
 
     if (!mounted) {
         return null
@@ -14,13 +14,13 @@ const Template = ({children}) => {
     return (
         <div className={`
             relative flex
-            h-[${height}px] w-screen
+            h-screen w-screen
             overflow-hidden
             `}
         >
-            <MenuBar vw={vw} vh={vh}/>
+            <MenuBar />
 
-            <div className='grow flex flex-col'>
+            <div className='flex flex-col w-full'>
                 <div className='bg-blue-200 h-12 pl-16'>Header Bar</div>
                 <div className='bg-blue-400 grow'>
                     <p>Main Section 2</p>

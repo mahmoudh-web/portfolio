@@ -1,8 +1,11 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
+import { useAppContext } from "../AppContext"
 
 const MenuBar = ({vw, vh}) => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const { height } = useAppContext()
+
 
     const toggleMenu = () => {
         setMenuOpen(prev => !prev)
@@ -11,9 +14,9 @@ const MenuBar = ({vw, vh}) => {
 
         <motion.div 
             className={`
-                absolute 
+                absolute
                 flex 
-                h-full
+                top-0 bottom-${height}px
                 ${menuOpen ? '-left-4' : '-left-60'} 
                 w-72`}
             layout
