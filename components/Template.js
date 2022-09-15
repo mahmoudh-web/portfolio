@@ -16,7 +16,7 @@ const Template = ({children}) => {
             className="flex items-end w-full bg-red-200 p-8"
             style={{height: heightString}}
         >
-            <p>test</p>
+            <MenuBar />
         </div>
     )
 }
