@@ -6,6 +6,11 @@ const Template = ({children}) => {
     const { height, mounted } = useAppContext()
 
     const heightString = `${height}px`
+    
+    if (!mounted) {
+        return null
+    }
+    
     return (
         <div 
             className="flex items-end w-full bg-red-200 p-8"
