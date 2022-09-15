@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import GitHub from '../icons/GitHub'
 
 const MenuItems = () => {
     const pages = ['Lab', 'Projects', 'About', 'Contact']
 
+    const { pathname } = useRouter()
+    
     const hoverVariants = {
         whileHover: {
             scale: 1.5,
@@ -13,14 +16,18 @@ const MenuItems = () => {
         }
     }
 
+
     const pagesEl = pages.map((page, i) => (
         <Link  key={i} href={`/${page.toLowerCase()}`} >
             <motion.p
-                className="cursor-pointer text-lg hover:text-orange-600"
+                className={`
+                cursor-pointer text-lg hover:text-orange-600
+                ${pathname.startsWith(`/${page.toLowerCase()}`) ? 'font-bold text-orange-600' : ''}
+                `}                
                 variants={hoverVariants}
                 whileHover="whileHover"
             >
-                {`${page}`}
+                {pathname.startsWith(`/${page.toLowerCase()}`) ? `{${page}}` : page}
             </motion.p>
         </Link>
     ))
@@ -29,11 +36,14 @@ const MenuItems = () => {
         <div>
             <Link href='/'>
                 <motion.p
-                    className="cursor-pointer text-lg hover:text-orange-600"
+                    className={`
+                        cursor-pointer text-lg hover:text-orange-600
+                        ${pathname === '/' ? 'font-bold text-orange-600' : ''}
+                    `}
                     variants={hoverVariants}
                     whileHover="whileHover"
                     >
-                    Home
+                    {pathname === '/' ? '{Home}' : 'Home'}
                 </motion.p>
 
             </Link>
@@ -51,6 +61,7 @@ const MenuItems = () => {
                     <GitHub iconsize={24}/>
                 </motion.a>
             </div>
+            {pathname}
         </div>
     )
 }
