@@ -14,12 +14,21 @@ const Template = ({children}) => {
     
     return (
         <div 
-            className="flex flex-col w-full overflow-hidden"
+            className="
+                flex flex-col w-full overflow-hidden
+                bg-neutral-300 dark:bg-zinc-800
+                text-zinc-800 dark:text-neutral-300
+            "
             style={{height: heightString}}
         
         >
             <MenuBar />
-            <div className="flex flex-col overflow-y-auto overscroll-none">
+            <div 
+                className="
+                    flex flex-col 
+                    overflow-y-auto overscroll-none
+                    "
+            >
                 <Header />
                 <div className="pl-16 pr-4 py-4">
                     {children}
