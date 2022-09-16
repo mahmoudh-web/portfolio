@@ -1,4 +1,3 @@
-import { Client } from "@notionhq/client"
 import connectNotion from "../../../util/notion/connect"
 
 const handler = async (req, res) => {

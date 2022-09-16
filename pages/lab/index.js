@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
+import serverUrl from '../../serverConfig'
 
 export const getStaticProps = async () => {
-    const res = await fetch('http://localhost:3000/api/lab/allLab')
+    const res = await fetch(`${serverUrl}/api/lab/allLab`)
     const data = await res.json()
 
     return {props: {data}}
