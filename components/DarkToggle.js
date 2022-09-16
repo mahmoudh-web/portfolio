@@ -12,7 +12,7 @@ const DarkToggle = () => {
                 className={`
                 flex ${theme === 'light' ? 'items-start' : 'items-end'} 
                 w-6 h-10 border 
-                border-zinc-800 dark:border-neutral-300
+                border-zinc-800 dark:border-neutral-200
                 cursor-pointer
                 p-1
                 `}
@@ -21,7 +21,7 @@ const DarkToggle = () => {
                 <motion.div 
                     layout
                     transition={{type: 'linear'}}
-                    className="w-4 h-4 bg-zinc-800 dark:bg-neutral-300"></motion.div>
+                    className="w-4 h-4 bg-zinc-800 dark:bg-neutral-200"></motion.div>
             </motion.div>
             <MoonIcon className="w-6 h-6"/>
         </div>
