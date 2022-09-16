@@ -16,7 +16,7 @@ const MenuBar = ({vw, vh}) => {
                 ${menuOpen ? '-left-4' : '-left-60'} 
                 w-72
                 z-50
-                bg-neutral-300 dark:bg-zinc-800
+                bg-neutral-200 dark:bg-zinc-800
                 `}
             layout
             transition={{type:'spring', stiffness: 1000, damping: 40 }}

@@ -3,6 +3,9 @@ import { AppContextProvider } from '../AppContext'
 import Template from '../components/Template'
 import '../styles/globals.css'
 
+// import * as dotenv from 'dotenv'
+// dotenv.config()
+
 function MyApp({ Component, pageProps }) {
     return (
         <ThemeProvider attribute='class' defaultTheme = 'light' enableSystem = {true}>

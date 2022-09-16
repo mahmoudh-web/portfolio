@@ -16,8 +16,8 @@ const Template = ({children}) => {
         <div 
             className="
                 flex flex-col w-full overflow-hidden
-                bg-neutral-300 dark:bg-zinc-800
-                text-zinc-800 dark:text-neutral-300
+                bg-neutral-200 dark:bg-zinc-800
+                text-zinc-800 dark:text-neutral-200
             "
             style={{height: heightString}}
         
