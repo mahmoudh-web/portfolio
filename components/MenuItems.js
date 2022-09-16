@@ -23,8 +23,8 @@ const MenuItems = () => {
         <Link  key={i} href={`/${page.toLowerCase()}`} >
             <motion.p
                 className={`
-                cursor-pointer text-lg hover:text-orange-600
-                ${pathname.startsWith(`/${page.toLowerCase()}`) ? 'font-bold text-orange-600' : ''}
+                    cursor-pointer text-lg hover:text-orange-600 leading-8
+                    ${pathname.startsWith(`/${page.toLowerCase()}`) ? 'font-bold text-orange-600' : ''}
                 `}                
                 variants={hoverVariants}
                 whileHover="whileHover"
@@ -40,7 +40,7 @@ const MenuItems = () => {
             <Link href='/'>
                 <motion.p
                     className={`
-                        cursor-pointer text-lg hover:text-orange-600
+                        cursor-pointer text-lg hover:text-orange-600 leading-8
                         ${pathname === '/' ? 'font-bold text-orange-600' : ''}
                     `}
                     variants={hoverVariants}

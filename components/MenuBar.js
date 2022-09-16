@@ -19,7 +19,7 @@ const MenuBar = ({vw, vh}) => {
                 bg-neutral-200 dark:bg-zinc-800
                 `}
             layout
-            transition={{type:'spring', stiffness: 1000, damping: 40 }}
+            transition={{type:'spring', stiffness: 1000, damping: 40, delay: 0.1 }}
         >
             <div className={`flex h-full grow px-8 py-12`}>
                 <MenuItems />
