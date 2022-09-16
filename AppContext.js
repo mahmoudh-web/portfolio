@@ -10,6 +10,8 @@ const AppContextProvider = ({children}) => {
     const [height, setHeight] = useState(0);
     const [menuOpen, setMenuOpen] = useState(false)
 
+    const test = ''
+    
     const toggleMenu = () => {
         setMenuOpen(prev => !prev)
     }
