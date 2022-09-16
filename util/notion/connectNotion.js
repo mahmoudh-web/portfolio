@@ -1,6 +1,4 @@
 import { Client } from "@notionhq/client"
-// import * as dotenv from 'dotenv'
-// dotenv.config({path: '../../.env'})
 
 const connectNotion = async () => {
     const secret = process.env.NOTION_SECRET

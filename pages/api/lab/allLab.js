@@ -1,4 +1,4 @@
-import connectNotion from "../../../util/notion/connect"
+import connectNotion from "../../../util/notion/connectNotion"
 
 const handler = async (req, res) => {
     const connected = await connectNotion()
