@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react"
-import serverUrl from '../../serverConfig'
+import { getLabPosts } from "../api/lab"
 
 export const getStaticProps = async () => {
-    const result = await fetch(`${serverUrl}/api/lab`)
-    const data = await result.json()
+    const data = await getLabPosts()
     return {props: {data}}
 }
 
