@@ -1,6 +1,6 @@
 import getAllPosts from "../../util/notion/getAll"
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     const data = await getAllPosts(process.env.NOTION_DB_LAB)
     return {props: {data}}
 }
