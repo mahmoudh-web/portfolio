@@ -1,4 +1,4 @@
-import SectionTitle from "../SectionTitle"
+import SectionTitle from "./SectionTitle"
 import Btn from "../buttons/Btn"
 
 const Section = ({section}) => {
@@ -7,7 +7,7 @@ const Section = ({section}) => {
     
     if (section.buttons.length) {
         buttons =  (
-            <div className="flex gap-4 flex-wrap py-4">
+            <div className="flex gap-4 flex-wrap py-4 self-end">
                 {section.buttons.map(button => (
                     <Btn key={button.content} button={button} />
                 ))}
@@ -18,13 +18,13 @@ const Section = ({section}) => {
     return ( 
         <div className="
         flex flex-col
-        h-max w-full
+        h-full w-full
         pb-4
         border-b border-b-zinc-500
         "
     >
         <SectionTitle title={section.title} subtitle={section.subtitle} />
-        <p>{section.body}</p>
+        <p className="text-lg grow">{section.body}</p>
         {buttons}
     </div>
     )

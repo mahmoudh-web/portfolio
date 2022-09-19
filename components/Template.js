@@ -15,7 +15,7 @@ const Template = ({children}) => {
     return (
         <div 
             className="
-                flex flex-col w-full h-full overflow-hidden
+                flex flex-col w-full overflow-hidden overflow-y-clip
                 bg-neutral-200 dark:bg-zinc-800
                 text-zinc-800 dark:text-neutral-200
             "

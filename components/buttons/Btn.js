@@ -6,8 +6,9 @@ const Btn = ({button}) => {
             <p
                 className={`
                     ${button.size === 'sm' ? 'py-2 px-4 text-sm' : ''}
-                    border border-zinc-800 hover:bg-zinc-800
-                    hover:text-neutral-200
+                    border border-zinc-800 dark:border-neutral-200
+                    hover:bg-zinc-800 dark:hover:bg-neutral-200
+                    hover:text-neutral-200 dark:hover:text-zinc-800
                     cursor-pointer
                 `}
             >
