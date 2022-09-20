@@ -5,7 +5,6 @@ const Hero = ({children}) => {
                 flex
                 w-full
                 px-8 py-16
-                border-b border-b-zinc-500
                 justify-center
             "
         >
