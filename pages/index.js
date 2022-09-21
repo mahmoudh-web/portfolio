@@ -41,18 +41,17 @@ export default function Home() {
                 <FadeIn>
                     <Hero>
                         <h2 className="text-3xl my-8">
-                            I&apos;m <span className="font-bold text-orange-600">Mahmoud</span>, a full stack developer with an interest in great user experience. I&apos;m based in the UK and available to work remotely.
+                            I&apos;m <span className="font-semibold text-orange-600">Mahmoud</span>, a full stack developer with an interest in great user experience. I&apos;m based in the UK and available to work remotely.
                         </h2>
-                        <h3 className="text-3xl mt-8">I <span className="font-bold text-orange-600">build: &#123;</span></h3>
-                        <div className="flex gap-2 flex-wrap mt-4 ml-8">
-                            <p className="flex gap-1 items-center"><AtSymbolIcon className="text-orange-600 w-4 h-4"/>Websites,</p>
+                        <h3 className="text-3xl mt-8">I <span className="font-semibold text-orange-600">build:</span></h3>
+                        <div className="flex gap-2 flex-wrap mt-4">
+                            <p className="flex gap-1 items-center">&#123;<AtSymbolIcon className="text-orange-600 w-4 h-4"/>Websites,</p>
                             <p className="flex gap-1 items-center"><DevicePhoneMobileIcon className="text-orange-600 w-4 h-4"/>Web Apps,</p>
                             <p className="flex gap-1 items-center"><ShoppingBagIcon className="text-orange-600 w-4 h-4"/>Ecommerce Solutions,</p>
                             <p className="flex gap-1 items-center"><CircleStackIcon className="text-orange-600 w-4 h-4"/>Databases,</p>
                             <p className="flex gap-1 items-center"><CodeBracketSquareIcon className="text-orange-600 w-4 h-4"/>API&apos;s,</p>
-                            <p className="flex gap-1 items-center"><PresentationChartBarIcon className="text-orange-600 w-4 h-4"/>Visualisations</p>
+                            <p className="flex gap-1 items-center"><PresentationChartBarIcon className="text-orange-600 w-4 h-4"/>Visualisations &#125;</p>
                         </div>
-                        <h3 className="text-3xl mt-4 font-bold text-orange-600">&#125;</h3>
                     </Hero>
                 </FadeIn>
             </div>

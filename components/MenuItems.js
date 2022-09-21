@@ -4,9 +4,16 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../AppContext";
 
 import GitHub from '../icons/GitHub'
+// import { 
+//     BeakerIcon,
+//     ChatBubbleLeftEllipsisIcon,
+//     HomeIcon, InformationCircleIcon, RectangleStackIcon, 
+// } from '@heroicons/react/24/outline'
+import { HomeIcon } from '@heroicons/react/24/outline'
+import pages from "./menuPages";
 
 const MenuItems = () => {
-    const pages = ['Lab', 'Projects', 'About', 'Contact']
+
     const {toggleMenu} = useAppContext()
 
     const { pathname } = useRouter()
@@ -18,37 +25,45 @@ const MenuItems = () => {
         }
     }
 
+    const pagesEl = pages.map((page, i) => {
 
-    const pagesEl = pages.map((page, i) => (
-        <Link  key={i} href={`/${page.toLowerCase()}`} >
-            <motion.p
-                className={`
-                    cursor-pointer text-lg hover:text-orange-600 leading-8
-                    ${pathname.startsWith(`/${page.toLowerCase()}`) ? 'font-bold text-orange-600' : ''}
-                `}                
-                variants={hoverVariants}
-                whileHover="whileHover"
-                onClick={toggleMenu}
-            >
-                {pathname.startsWith(`/${page.toLowerCase()}`) ? `{${page}}` : page}
-            </motion.p>
-        </Link>
-    ))
-
-    return (
-        <div>
-            <Link href='/'>
-                <motion.p
+        const Icon = page.icon
+        return (
+            <Link key={i} href={`/${page.title.toLowerCase()}`}>
+                <motion.div
                     className={`
-                        cursor-pointer text-lg hover:text-orange-600 leading-8
-                        ${pathname === '/' ? 'font-bold text-orange-600' : ''}
+                    cursor-pointer text-lg hover:text-orange-600 leading-8
+                    ${pathname.startsWith(`/${page.title.toLowerCase()}`) ? 'font-semibold text-orange-600' : ''}
+                    flex gap-1 items-center
                     `}
                     variants={hoverVariants}
                     whileHover="whileHover"
                     onClick={toggleMenu}
                     >
-                    {pathname === '/' ? '{Home}' : 'Home'}
-                </motion.p>
+                    <Icon className="w-4 h-4"/>
+                    <p>{pathname.startsWith(`/${page.title.toLowerCase()}`) ? `{${page.title}}` : page.title}</p>
+                </motion.div>
+            </Link>
+        )
+
+    })
+
+    return (
+        <div>
+            <Link href='/'>
+                <motion.div
+                    className={`
+                        cursor-pointer text-lg hover:text-orange-600 leading-8
+                        ${pathname === '/' ? 'font-semibold text-orange-600' : ''}
+                        flex gap-1 items-center
+                    `}
+                    variants={hoverVariants}
+                    whileHover="whileHover"
+                    onClick={toggleMenu}
+                    >
+                    <HomeIcon className="w-4 h-4"/>
+                    <p>{pathname === '/' ? '{Home}' : 'Home'}</p>
+                </motion.div>
 
             </Link>
             {pagesEl}
