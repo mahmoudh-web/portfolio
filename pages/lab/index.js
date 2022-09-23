@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { BeakerIcon, PaperClipIcon } from "@heroicons/react/24/outline"
 import getAllPosts from "../../util/notion/getAll"
-import Btn from "../../components/buttons/Btn"
+import LinkTo from "../../components/buttons/LinkTo"
 
 export const getStaticProps = async () => {
     const data = await getAllPosts(process.env.NOTION_DB_LAB)
@@ -11,27 +11,26 @@ export const getStaticProps = async () => {
 
 const Home = ({data}) => {
 
-    const postsEl = data.map((post, i) => {
+    const postsEl = data.map(post => {
 
         const title = post.properties.Name.title[0].text.content
         const postUrl = post.url.split('-').slice(0,-1).join('-').replace('https://www.notion.so/', '').toLowerCase()
         const url = `/lab/${postUrl}`
+
         let excerpt = ''
         if (post.properties.Excerpt.rich_text.length) {
             excerpt = post.properties.Excerpt.rich_text[0].text.content
         }
 
-        const btn = {
-            size: 'xs',
+        const postLink = {
             link: url,
-            content: 'Read More...'
+            content: 'Continue Reading...'
         }
 
         return (
             <div 
                 key={post.id}
                 className={`
-                    ${i === 0 ? 'w-3/5' : 'grow'}
                     border-b border-zinc-500 
                     mb-4 pb-4
                 `}
@@ -42,13 +41,21 @@ const Home = ({data}) => {
                         <h3 className="text-2xl font-semibold">{title}</h3>
                     </div>
                 </Link>
+
                 <p className="">{excerpt}</p>
+
                 <div className="flex py-4 justify-end">
-                    <Btn className="cursor-pointer" key={btn.content} button={btn} />
+                    <LinkTo className="cursor-pointer" key={postLink.content} postLink={postLink} />
                 </div>
             </div>
         )
     })
+
+    // const post = data[3]
+
+    // const postTitle = post.properties.Name.title[0].text.content
+
+
 
     return (
         <div>
@@ -71,6 +78,8 @@ const Home = ({data}) => {
             </div>
             <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
                 {postsEl}
+                {/* <h2>{postTitle}</h2> */}
+                {/* {JSON.stringify(post.properties.Name.title[0].text.content)} */}
             </div>
         </div>
     )
