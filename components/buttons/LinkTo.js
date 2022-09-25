@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const LinkTo = ({postLink}) => {
     return ( 
-        <Link href={postLink.link}>
+        <Link href={`/lab/${postLink.url}`}>
             <a
                 className={`
                     flex gap-1 items-center
@@ -10,7 +10,7 @@ const LinkTo = ({postLink}) => {
                     hover:scale-105 hover:font-semibold
                 `}
             >
-                {postLink.content}
+                {postLink.text}
             </a>
         </Link>
     );

@@ -102,7 +102,7 @@ const Post = ({blocks, pageTitle}) => {
         if (block.type === 'image') {
             return (
                 <div key={block.id} className="w-full">
-                    <Image alt='' src={block.content} layout="responsive" width={100} height={100}/>
+                    <Image alt='' src={block.content} layout="responsive" width={100} height={25}/>
                 </div>
             )
         }
@@ -118,8 +118,8 @@ const Post = ({blocks, pageTitle}) => {
     })
 
     return (
-        <div className="w-full">
-                <h2 className="text-3xl font-bold">{pageTitle}</h2>
+        <div className="max-w-screen-md m-auto">
+                <h2 className="text-3xl font-bold mb-8">{pageTitle}</h2>
                 {blocksEl}
         </div>
     )

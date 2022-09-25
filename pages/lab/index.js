@@ -1,53 +1,48 @@
 import Link from "next/link"
 import slugify from "slugify"
+import Card from "../../components/Card"
 
 import { BeakerIcon, PaperClipIcon } from "@heroicons/react/24/outline"
 import getAllPosts from "../../util/notion/getAll"
 import LinkTo from "../../components/buttons/LinkTo"
+import Filter from "../../components/Filter"
 
 export const getStaticProps = async () => {
     const data = await getAllPosts(process.env.NOTION_DB_LAB)
 
-    const posts = data.map(post => ({
-        title: post.properties.Name.title[0].plain_text,
-        url: post.url,
-        excerpt: post.properties.Excerpt.rich_text[0].plain_text,
-        id: post.id
-    }))
+    const postData = []
 
-    return {props: {posts}}
+    const posts = data.map(post => {
+        post.properties.Tags.multi_select.forEach(tag => {
+            postData.push(tag.name)
+        })
+        
+        const title = post.properties.Name.title[0].plain_text
+        const url = slugify(title).toLowerCase()
+
+        return {
+            title: title,
+            postLink: {
+                url: url,
+                text: 'Continue Reading...',
+            },
+            excerpt: post.properties.Excerpt.rich_text[0].plain_text,
+            id: post.id,
+            image: post.properties.Image.url
+        }
+    })
+
+    const tags = [...new Set(postData)].sort()
+
+    return {props: {posts, tags}}
 }
 
-const Home = ({posts}) => {
+const Home = ({posts, tags}) => {
 
     const postsEl = posts.map(post => {
 
-        const postLink = {
-            link: `/lab/${slugify(post.title).toLowerCase()}`,
-            content: 'Continue Reading...'
-        }
-
         return (
-            <div 
-                key={post.id}
-                className={`
-                    border-b border-zinc-500 
-                    mb-4 pb-4
-                `}
-            >
-                <Link href={`/lab/${slugify(post.title).toLowerCase()}`}>
-                    <div className="cursor-pointer flex gap-1 flex-wrap items-center text-orange-600 mb-2">
-                        <PaperClipIcon className="w-6 h-6"/>
-                        <h3 className="text-2xl font-semibold">{post.title}</h3>
-                    </div>
-                </Link>
-
-                <p className="">{post.excerpt}</p>
-
-                <div className="flex py-4 justify-end">
-                    <LinkTo className="cursor-pointer" key={postLink.content} postLink={postLink} />
-                </div>
-            </div>
+            <Card key={post.id} post={post}/>
         )
     })
 
@@ -70,7 +65,8 @@ const Home = ({posts}) => {
                     Lab
                 </h2>
             </div>
-            <div className="flex flex-col gap-4">
+            <Filter tags={tags}/>
+            <div className="flex gap-4">
                 {postsEl}
             </div>
         </div>
