@@ -13,6 +13,13 @@ module.exports = {
       'xl': '1280px',
       '2xl': '1536px',
     },
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square',
+      roman: 'upper-roman',
+    },
     extend: {},
   },
   plugins: [],

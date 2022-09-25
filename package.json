@@ -18,7 +18,8 @@
     "next-real-viewport": "^0.7.2",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.9",
