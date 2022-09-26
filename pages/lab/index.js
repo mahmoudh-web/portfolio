@@ -6,6 +6,7 @@ import { BeakerIcon, PaperClipIcon } from "@heroicons/react/24/outline"
 import getAllPosts from "../../util/notion/getAll"
 import LinkTo from "../../components/buttons/LinkTo"
 import Filter from "../../components/Filter"
+import { useState, useEffect } from "react"
 
 export const getStaticProps = async () => {
     const data = await getAllPosts(process.env.NOTION_DB_LAB)
@@ -13,12 +14,15 @@ export const getStaticProps = async () => {
     const postData = []
 
     const posts = data.map(post => {
-        post.properties.Tags.multi_select.forEach(tag => {
-            postData.push(tag.name)
-        })
         
         const title = post.properties.Name.title[0].plain_text
         const url = slugify(title).toLowerCase()
+        const tags = []
+
+        post.properties.Tags.multi_select.forEach(tag => {
+            postData.push(tag.name)
+            tags.push(tag.name)
+        })
 
         return {
             title: title,
@@ -28,23 +32,53 @@ export const getStaticProps = async () => {
             },
             excerpt: post.properties.Excerpt.rich_text[0].plain_text,
             id: post.id,
-            image: post.properties.Image.url
+            image: post.properties.Image.url,
+            tags: tags
         }
     })
 
-    const tags = [...new Set(postData)].sort()
+    const allTags = [...new Set(postData)].sort()
 
-    return {props: {posts, tags}}
+    return {props: {posts, allTags}}
 }
 
-const Home = ({posts, tags}) => {
+const Home = ({posts, allTags}) => {
 
-    const postsEl = posts.map(post => {
+    const [filters, setFilters] = useState([])
+    const [postsEl, setPostsEl] = useState(setPosts(posts))
 
-        return (
-            <Card key={post.id} post={post}/>
-        )
-    })
+    useEffect(() => {
+        if (!filters.length) {
+            setPostsEl(setPosts(posts))
+        }
+
+        if (filters.length) {
+            const filteredPosts = posts.filter(post => post.tags.some(tag => filters.includes(tag)))
+            setPostsEl(setPosts(filteredPosts))
+        }
+    }, [filters, posts])
+
+    function setPosts(filteredPosts) {
+        const render = filteredPosts.map(post => {
+            return (
+                <Card key={post.id} post={post} />
+            )
+        })
+
+        return render
+    }
+
+    const handleFilters = (e) => {
+        e.preventDefault()
+        console.log(e.target.value)
+        const index = filters.indexOf(e.target.value)
+        if (index > -1) {
+            const newFilters = filters.filter(filter => filter != e.target.value)
+            setFilters(newFilters)
+        } else {
+            setFilters(prev => [...prev, e.target.value])
+        }
+    }
 
     return (
         <div>
@@ -65,8 +99,8 @@ const Home = ({posts, tags}) => {
                     Lab
                 </h2>
             </div>
-            <Filter tags={tags}/>
-            <div className="flex gap-4">
+            <Filter tags={allTags} filters={filters} onclick={handleFilters}/>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-8">
                 {postsEl}
             </div>
         </div>

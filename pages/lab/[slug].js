@@ -38,6 +38,7 @@ export const getStaticProps = async ({params: { slug }}) => {
 
     const blocksList = await getChildren(page.id)
     const pageTitle = page.properties.Name.title[0].plain_text
+    const imageUrl = page.properties.Image.url
 
 
     const blocks = []
@@ -73,12 +74,12 @@ export const getStaticProps = async ({params: { slug }}) => {
         }
     }
     
-    return {props: {blocks, pageTitle}}
+    return {props: {blocks, pageTitle, imageUrl}}
 }
 
 
 
-const Post = ({blocks, pageTitle}) => {
+const Post = ({blocks, pageTitle, imageUrl}) => {
 
     const blocksEl = blocks.map(block => {
         
@@ -120,6 +121,9 @@ const Post = ({blocks, pageTitle}) => {
     return (
         <div className="max-w-screen-md m-auto">
                 <h2 className="text-3xl font-bold mb-8">{pageTitle}</h2>
+                <div className="relative h-48 md:h-96 w-full mb-8">
+                    <Image src={imageUrl} alt={pageTitle} layout="fill" objectFit="cover"/>
+                </div>
                 {blocksEl}
         </div>
     )

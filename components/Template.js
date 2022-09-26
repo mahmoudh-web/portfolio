@@ -31,7 +31,7 @@ const Template = ({children}) => {
                     "
             >
                 <Header />
-                <div className="pl-20 pr-4 py-8 h-full">
+                <div className="pl-20 pr-8 py-8 h-full">
                     {children}
                 </div>
             </div>
