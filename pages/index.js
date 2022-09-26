@@ -14,6 +14,7 @@ import {
     CodeBracketSquareIcon,
     PresentationChartBarIcon
 } from '@heroicons/react/24/outline'
+import HeroBanner from "../components/homePage/HeroBanner"
 
 export default function Home() {    
     return (
@@ -25,8 +26,11 @@ export default function Home() {
                 w-full min-h-fit
                 overflow-hidden
                 "
-                >
-                <div className="flex lg:w-2/3 lg:px-4">
+            >
+                <FadeIn>
+                    <HeroBanner />
+                </FadeIn>
+                {/* <div className="flex lg:w-2/3 lg:px-4">
                     <AnimateIn>
                         <Section section={latestProject} />
                     </AnimateIn>
@@ -35,7 +39,7 @@ export default function Home() {
                     <AnimateIn start='100vw'>
                         <Section section={lab} />
                     </AnimateIn>
-                </div>
+                </div> */}
             </div>
             <div className="lg:px-4">
                 <FadeIn>

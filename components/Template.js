@@ -26,12 +26,11 @@ const Template = ({children}) => {
             <div 
                 className="
                     flex flex-col
-                    h-full
                     overflow-y-auto overscroll-none
                     "
             >
                 <Header />
-                <div className="pl-20 pr-8 py-8 h-full">
+                <div className="pl-20 pr-8 py-8">
                     {children}
                 </div>
             </div>
