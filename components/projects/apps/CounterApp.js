@@ -3,7 +3,10 @@ import { PlusCircleIcon, MinusCircleIcon } from '@heroicons/react/24/outline'
 
 const CounterApp = () => {
     const [count, setCount] = useState(0)
-    const icons = `w-12 h-12 cursor-pointer`
+    const icons = `
+        w-12 h-12 cursor-pointer
+        hover:text-green-600
+    `
 
     const handleCount = (direction) => {
         if (direction === 'down') {
@@ -38,7 +41,10 @@ const CounterApp = () => {
             >
                 <h3 className="text-xl font-semibold mb-4">Counter</h3>
                 <div className="flex gap-4 text-4xl items-center">
-                    <MinusCircleIcon className={icons} onClick={() => handleCount('down')}/>
+                    <MinusCircleIcon 
+                        className={icons} 
+                        onClick={() => handleCount('down')}
+                    />
                     <p className={`
                             text-8xl font-semibold
                             ${count < 0 ? 'text-red-600' : ''}
@@ -47,14 +53,23 @@ const CounterApp = () => {
                     >
                         {count}
                     </p>
-                    <PlusCircleIcon className={icons} onClick={() => handleCount('up')}/>
+                    <PlusCircleIcon 
+                        className={icons} 
+                        onClick={() => handleCount('up')}
+                    />
                 </div>
                 <div className="margin-auto mt-4">
                     <p 
-                        className="p-2 bg-neutral-200 text-zinc-800 rounded cursor-pointer"
+                        className="
+                            p-2 
+                            bg-neutral-200 text-zinc-800 
+                            hover:bg-neutral-500 hover:text-zinc-100
+                            rounded 
+                            cursor-pointer
+                        "
                         onClick={() => handleCount('reset')}
                     >
-                        RESET
+                        Reset
                     </p>
                 </div>
             </div>
