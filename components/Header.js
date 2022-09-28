@@ -9,7 +9,7 @@ const Header = () => {
                     text-md sm:text-xl
                     cursor-pointer
                 ">
-                    mahmoudh.com:<span className="text-orange-600 font-bold">{`{Full Stack Developer}`}</span>
+                    mahmoudh.com: <span className="text-orange-600">{`{developer in the making}`}</span>
                 </h2>
             </div>
         </Link>

@@ -4,7 +4,7 @@ const Hero = ({children}) => {
             className="
                 flex
                 w-full
-                px-8 py-16
+                px-8 py-8
                 justify-center
             "
         >
