@@ -1,6 +1,6 @@
 import Link from "next/link"
-import CounterApp from "../../components/projects/apps/CounterApp"
-import GitHub from '../../icons/GitHub'
+import CounterApp from "../components/projects/apps/CounterApp"
+import GitHub from '../icons/GitHub'
 
 const DayOne = () => {
     return (  

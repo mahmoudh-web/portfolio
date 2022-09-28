@@ -8,8 +8,8 @@ const SimpleCard = ({project}) => {
             "
         >
             <h3 className="text-xl font-semibold">{project.title}</h3>
-            <p className="text-lg font-semibold">{project.description}</p>
-            <Link href={project.link}>
+            <p className="text-md">{project.description}</p>
+            <Link href={`/projects/${project.link}`}>
                 <p className="cursor-pointer underline hover:font-semibold">Link</p>
             </Link>
         </div>

@@ -15,7 +15,7 @@ const ProjectBanner = ({tag, project}) => {
                     <div className="w-full">
                         <p className="text-xl font-semibold">{project.title}</p>
                         <p className="shrink">{project.description}</p>
-                        <Link href={project.link}>
+                        <Link href={`/projects/${project.link}`}>
                             <p className="cursor-pointer self-end hover:font-semibold underline">Read More...</p>
                         </Link>
                     </div>
