@@ -6,8 +6,8 @@ const Projects = () => {
 
     return ( 
         <div className='
-                container
-                sm:grid sm:grid-cols-2 sm:my-auto
+                max-w-screen-lg mx-auto
+                sm:grid sm:grid-cols-3
                 flex flex-col gap-4
             '
         >
