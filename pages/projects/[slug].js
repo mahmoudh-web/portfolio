@@ -40,14 +40,12 @@ const Project = ({ page }) => {
                     </div>
                 </Link>
             </div>
-            <div className="border-b border-b-zinc-500 pb-4">
-                <h2 className="text-3xl font-semibold mb-2">{page.title}</h2>
+            <div className="border-b border-b-zinc-500 pb-4 flex flex-col md:flex-row">
+                <div>
+                    <h2 className="text-5xl font-semibold text-orange-400">Day <span className="text-8xl">#{page.dayNumber}</span></h2>
+                    <h2 className="text-3xl font-semibold mb-2">{page.title}</h2>
+                </div>
                 <p className="">{page.description}</p>
-                <a 
-                    href={page.github}
-                    target='_blank'
-                    rel='noreferrer'
-                >
                     <div className="
                             flex gap-2 
                             bg-zinc-800 text-neutral-200 
@@ -55,12 +53,17 @@ const Project = ({ page }) => {
                             rounded
                             w-max
                             cursor-pointer
-                        "
+                            "
                     >
+                            <a 
+                                href={page.github}
+                                target='_blank'
+                                rel='noreferrer'
+                            >
                         <GitHub iconsize={24}/>
                         <p>View Code</p>
-                    </div>
                 </a>
+                    </div>
             </div>
             <Suspense fallback={`Loading...`}>
                 <App />
